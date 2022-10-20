@@ -1,2 +1,2 @@
-# CodeIgniter 3 Skeleton
-This repository is maintained by https://github.com/rahimnagori
+# Rahim Nagori
+Official repository for multiple skeleton projects.
