@@ -4,15 +4,16 @@ import HomePage from "../pages/Home";
 import ContactPage from "../pages/Contact";
 import AboutPage from "../pages/About";
 import ErrorPage from "../pages/Error";
+import {Home, Contact, About} from "../Constants/utils";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: Home,
     element: <AppContainer />,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/contact", element: <ContactPage /> },
-      { path: "/About", element: <AboutPage /> },
+      { path: Home, element: <HomePage /> },
+      { path: Contact, element: <ContactPage /> },
+      { path: About, element: <AboutPage /> },
     ],
     errorElement: <ErrorPage />,
   },
