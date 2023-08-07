@@ -1,0 +1,21 @@
+.qodef-button {
+
+    &.qodef-layout--filled {
+    
+        &.qodef-html--link {
+            @include qodefButtonFilledColor();
+
+            &.qodef-skin--light {
+                @include qodefButtonFilledLightColor();
+            }
+
+            &:hover {
+                @include qodefButtonFilledHoverColor();
+
+                &.qodef-skin--light {
+                    @include qodefButtonFilledLightHoverColor();
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Movie screen shortcode responsive styles
+   ========================================================================== */
+
+.qodef-movie-screen {
+
+    @include qodefScreenSize1024 {
+
+        .qodef-m-image {
+            @include qodefAbsoluteLayout();
+
+            .qodef-m-bg-image {
+                height: 100%;
+            }
+
+            img {
+                display: none;
+            }
+        }
+
+        .qodef-m-content {
+            position: relative;
+            padding: 70px;
+        }
+    }
+
+    @include qodefScreenSize680 {
+
+        .qodef-m-additional-image {
+            padding-bottom: 25px;
+        }
+    }
+}

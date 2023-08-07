@@ -1,0 +1,31 @@
+2023-07-19T10:39:47+00:00 CRITICAL Uncaught RuntimeException: Unable to claim actions. Database error. in /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php:938
+Stack trace:
+#0 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php(799): ActionScheduler_DBStore->claim_actions()
+#1 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_QueueRunner.php(157): ActionScheduler_DBStore->stake_claim()
+#2 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_QueueRunner.php(136): ActionScheduler_QueueRunner->do_batch()
+#3 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(308): ActionScheduler_QueueRunner->run()
+#4 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#5 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/plugin.php(565): WP_Hook->do_action()
+#6 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-cron.php(188): do_action_ref_array()
+#7 {main}
+  thrown in /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php on line 938
+
+2023-07-19T10:39:49+00:00 CRITICAL Uncaught Exception: Invalid post. in /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/settings/page/manager.php:101
+Stack trace:
+#0 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/base/document.php(1688): Elementor\Core\Settings\Page\Manager->ajax_before_save_settings()
+#1 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/base/document.php(800): Elementor\Core\Base\Document->save_settings()
+#2 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/kits/manager.php(295): Elementor\Core\Base\Document->update_settings()
+#3 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/kits/manager.php(457): Elementor\Core\Kits\Manager->update_kit_settings_based_on_option()
+#4 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(310): Elementor\Core\Kits\Manager->Elementor\Core\Kits\{closure}()
+#5 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#6 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/plugin.php(517): WP_Hook->do_action()
+#7 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/option.php(570): do_action()
+#8 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-admin/includes/upgrade.php(58): update_option()
+#9 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/advanced-wp-reset/includes/functions.php(176): wp_install()
+#10 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(308): DBR_wp_reset()
+#11 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#12 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/plugin.php(517): WP_Hook->do_action()
+#13 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-admin/admin-ajax.php(188): do_action()
+#14 {main}
+  thrown in /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/settings/page/manager.php on line 101
+

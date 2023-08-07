@@ -1,0 +1,139 @@
+/* ==========================================================================
+# Logo default style
+========================================================================== */
+
+#qodef-page-header {
+
+    #qodef-page-header-inner {
+
+        .qodef-header-logo-link {
+
+            &.qodef-textual-logo {
+
+                .qodef-header--light & {
+                    color: #fff;
+                }
+
+                .qodef-header--dark & {
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    .qodef-header-logo-link {
+
+        &.qodef-textual-logo {
+			font-family: $heading-font;
+            font-size: 68px;
+            min-width: 55px;
+            color: #000;
+            justify-content: center;
+
+            .qodef-header-standard--right & {
+                justify-content: flex-start;
+            }
+
+            &.qodef--line-through {
+
+                .qodef-logo-text-inner {
+                    position: relative;
+                    display: inline-block;
+    
+                    &:after {
+                        content: "";
+                        @include qodefAbsoluteLayout();
+                        top: 34%;
+                        width: 100%;
+                        height: 5px;
+                        background-color: currentColor;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                    }
+                }
+
+                &.qodef--animate-line-through {
+                    
+                    .qodef-logo-text-inner {
+                        
+                        &:after {
+                            animation: qode-line-scaleX .5s 1s cubic-bezier(0.34, 0.25, 0, 0.98) forwards;
+                        }
+                    }
+                }
+            }
+		}
+
+        img {
+
+            &.qodef--main {
+                opacity: 1;
+            }
+
+            &.qodef--dark,
+            &.qodef--light {
+                opacity: 0;
+            }
+
+            &:not(.qodef--main):not(.qodef--sticky) {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        .qodef-header--light & {
+            
+            .qodef--light {
+                opacity: 1;
+            }
+
+            .qodef--dark,
+            .qodef--main {
+                opacity: 0;
+            }
+        }
+
+        .qodef-header--dark & {
+            
+            .qodef--dark {
+                opacity: 1;
+            }
+
+            .qodef--light,
+            .qodef--main {
+                opacity: 0;
+            }
+        }
+    }
+
+    .qodef-header-logo-image.qodef--customizer {
+        max-height: 100%;
+        width: auto;
+        margin-right: auto;
+    }
+
+    .qodef-header-sticky {
+
+        .qodef-header-logo-link.qodef-textual-logo {
+            color: #000;
+            justify-content: flex-start;
+        }
+
+        .qodef-header-logo-link {
+
+            img {
+
+                &.qodef--main {
+                    opacity: 1;
+                }
+        
+                &.qodef--dark,
+                &.qodef--light {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}

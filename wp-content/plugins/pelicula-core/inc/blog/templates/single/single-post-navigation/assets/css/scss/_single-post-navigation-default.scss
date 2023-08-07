@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Single Post Navigation styles
+   ========================================================================== */
+
+#qodef-single-post-navigation {
+	@include qodefRelativeLayout();
+	margin: 99px 0 0;
+
+	.qodef-m-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.qodef-m-nav {
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		> * {
+			display: block;
+			line-height: inherit;
+		}
+
+		&.qodef--prev,
+		&.qodef--next {
+			width: 50%;
+
+			.qodef-post-image {
+
+				img {
+					width: 112px;
+					max-width: 100%;
+				}
+			}
+
+			.qodef-title-label {
+				position: relative;
+				display: block;
+				width: calc(100% - 140px);
+
+				.qodef-e-title-link {
+					display: block;
+					@include qodefHeadingStyle(h6);
+					line-height: 19px;
+					transition: all 0.3s ease-in-out;
+
+					&:hover {
+						color: $main-color;
+					}
+				}
+
+				.qodef-m-nav-label {
+					line-height: 1;
+					color: $text-color;
+				}
+			}
+
+			@include qodefScreenSize680 {
+
+				.qodef-post-image {
+					display: none;
+				}
+
+				.qodef-title-label {
+					width: auto;
+
+					.qodef-e-title-link {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&.qodef--prev {
+
+			.qodef-post-image {
+				padding-right: 28px;
+			}
+		}
+
+		&.qodef--next {
+			flex-direction: row-reverse;
+			margin-left: auto;
+			text-align: right;
+
+			.qodef-post-image {
+				padding-left: 28px;
+			}
+		}
+	}
+}

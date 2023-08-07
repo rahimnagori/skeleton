@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Button shortcode styles
+   ========================================================================== */
+
+.qodef-button {
+	
+	&.qodef-html--link {
+		@include qodefButtonDefaultStyle();
+		@include qodefButtonSize();
+	}
+	
+	&.qodef-size--small {
+		@include qodefButtonSize(small);
+	}
+	
+	&.qodef-size--large {
+		@include qodefButtonSize(large);
+	}
+
+	&.qodef-size--full-width {
+		@include qodefButtonSize(full-width);
+	}
+
+	&.qodef-layout--with-bg-holder {
+		clip-path: inset(0);
+		-webkit-clip-path: inset(0);
+
+		.qodef-browser--edge &, .qodef-browser--ms-explorer & {
+			overflow: hidden;
+		}
+		
+		.qodef-m-text {
+			z-index: 12;
+			position: relative;
+		}
+			
+		.qodef-btn-bg-holder {
+			@include qodefAbsoluteLayout();
+			top: -5px;
+			width: 103%;
+			height: 112%;
+			z-index: 1;
+			pointer-events: none;
+			transform: translate3d(0,140%,0) skewY(10deg);
+			transition: .5s cubic-bezier(0.24, 0.69, 0.12, 0.9);
+		}
+
+		&:hover {
+			.qodef-btn-bg-holder {
+				transform: translate3d(0,0,0) skewY(0) !important;
+				transition: .5s cubic-bezier(0.07, 0.93, 0.12, 0.9);
+			}
+		}
+
+		&.qodef-layout--outlined {
+			overflow: hidden;
+			background-color: transparent !important;
+
+			.qodef-btn-bg-holder {
+				background-color: $background-color;
+
+				.qodef-browser--edge & {
+					z-index: -1;
+				}
+			}
+
+			&:hover {
+				color: #000;
+			}
+		}
+
+		&.qodef-layout--filled {
+			.qodef-browser--edge & {
+				transition: 0s;
+			}
+
+			.qodef-btn-bg-holder {
+				top: -5px;
+				left: -2px;
+    			width: 103%;
+				height: 114%;
+				background-color: #000;
+				transform: translate3d(0,0,0) skewY(0);
+			}
+
+			&:hover {
+				color: #fff;
+
+				.qodef-btn-bg-holder {
+					transform: translate3d(0,200%,0) skewY(10deg) !important;
+					transition: 1s cubic-bezier(0.15, 0.41, 0.01, 0.82) !important;
+				}
+			}
+		}
+
+		&.qodef-type--filled {
+			.qodef-browser--edge & {
+				transition: 0s;
+			}
+
+			&.wpcf7-submit {
+				overflow: hidden;
+				background-color: transparent;
+				
+				.qodef-btn-bg-holder {
+					background-color: #000;
+					transform: translate3d(0,0,0) skewY(0);
+				}
+
+				&:hover {
+
+					.qodef-btn-bg-holder {
+						transform: translate3d(0,205%,0) skewY(10deg) !important;
+						transition: .5s cubic-bezier(0.17, 0.21, 0, 0.96) !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Shop button styles (with bg color holder)
+.qodef-layout--shop-button.qodef-layout--with-bg-holder  {
+	clip-path: inset(0);
+	-webkit-clip-path: inset(0);
+
+	.qodef-browser--edge &, .qodef-browser--ms-explorer & {
+		overflow: hidden;
+	}
+
+	&.button.product_type_simple {
+		color: #000;
+		background-color: transparent !important;
+		border-color: #fff!important;
+
+		.qodef-btn-bg-holder {
+			background-color: #fff;
+		}
+	}
+
+	&.single_add_to_cart_button {
+		overflow: hidden;
+		background-color: transparent !important;
+
+		.qodef-btn-bg-holder {
+			background-color: #000;
+		}
+	}
+
+	.qodef-btn-bg-holder {
+		@include qodefAbsoluteLayout();
+		left: -2px;
+		top: -5px;
+		width: 103%;
+		height: 114%;
+		z-index: 1;
+		pointer-events: none;
+		transform: translate3d(0,0,0) skewY(0) !important;
+		transition: .5s cubic-bezier(0.24, 0.69, 0.12, 0.9);
+		background-color: #000;
+		z-index: -1;
+	}
+
+	&:hover {
+		.qodef-btn-bg-holder {
+			transform: translate3d(0,140%,0) skewY(10deg) !important;
+			transition: .5s cubic-bezier(0.17, 0.21, 0, 0.96) !important;
+		}
+	}
+}

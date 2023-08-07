@@ -1,0 +1,51 @@
+.qodef-button {
+    &.qodef-layout--textual {
+        padding: 0 !important;
+        font-size: 17px;
+        color: $heading-color;
+        background-color: transparent;
+        border: 0;
+
+        .qodef-m-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &.qodef-skin--light {
+            color: #fff;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: $width-transition;
+        }
+
+        &:hover {
+
+            &:after {
+                width: 100%;
+            }
+        }
+
+        &.qodef-layout--custom {
+            padding-left: 26px !important;
+
+            &:after {
+                width: 15px;
+            }
+
+            &:hover {
+
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

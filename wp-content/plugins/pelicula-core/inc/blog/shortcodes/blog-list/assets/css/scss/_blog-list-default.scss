@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Blog List styles
+   ========================================================================== */
+
+.qodef-blog {
+
+	&.qodef-shortcode {
+
+		article {
+
+			.qodef-e-media {
+				box-shadow: $box-shadow;
+			}
+		}
+
+		&.qodef-title-style--custom {
+
+			p.qodef-e-title {
+	            @include qodefHeadingStyle(h6);
+				letter-spacing: .2em;
+
+				* {
+					letter-spacing: inherit;
+				}
+	        }
+		}
+	}
+
+	&.qodef-swiper-container {
+
+		article {
+			margin: 0;
+		}
+	}
+	
+	&.qodef-skin--light {
+
+		article {
+
+			.qodef-e-inner {
+
+				.qodef-e-title,
+				.qodef-e-info,
+				.qodef-e-info-item,
+				.qodef-e-excerpt,
+				.qodef-e-read-more {
+					color: #fff;
+
+					.qodef-social-share {
+						color: #fff;
+
+						a {
+							color: #fff;
+
+							&:hover {
+								color: #fff;
+							}
+						}
+					}
+
+					a {
+						color: #fff;
+
+						&:hover {
+							color: #fff;
+						}
+					}
+				}
+
+				.qodef-e-info.qodef-info--top {
+
+					.qodef-e-info-item {
+						color: $text-color-light;
+
+						a {
+							color: $text-color-light;
+
+							&:hover {
+								color: #fff;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.qodef-skin--dark {
+
+		article {
+
+			.qodef-e-inner {
+
+				.qodef-e-title,
+				.qodef-e-info,
+				.qodef-e-info-item,
+				.qodef-e-excerpt,
+				.qodef-e-read-more {
+					color: $heading-color;
+
+					.qodef-social-share {
+						color: $heading-color;
+
+						a {
+							color: $heading-color;
+
+							&:hover {
+								color: $heading-color;
+							}
+						}
+					}
+
+					a {
+						color: $heading-color;
+
+						&:hover {
+							color: $heading-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

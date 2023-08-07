@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Interactive Link Showcase List styles
+   ========================================================================== */
+
+.qodef-interactive-link-showcase {
+	&.qodef-layout--list {
+		position: relative;
+		height: 100vh;
+
+		@include qodefScreenSize1024 {
+			height: auto;
+		}
+		
+		.qodef-m-bg-image {
+			position: absolute;
+			width: 50%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			
+			img {
+				display: none;
+			}
+		}
+		
+		.qodef-m-images {
+			position: relative;
+			display: block;
+			margin-left: auto;
+			width: 62%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			z-index: 20;
+			overflow: hidden;
+
+			.qodef-m-images-mark {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 90%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .1);
+			}
+		}
+		
+		.qodef-m-image {
+			top: 15%;
+			height: 70%;
+			
+			.qodef-video-button {
+				position: relative;
+				width: 100%;
+				height: 100%;
+
+				.qodef-m-play {
+					line-height: inherit;
+				}
+			}
+		}
+		
+		.qodef-m-items {
+			@include qodefAbsoluteLayout();
+			width: 38%;
+			justify-content: center;
+			flex-direction: column;
+			align-items: flex-start;
+			left: 80px;
+		}
+		
+		.qodef-m-item {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			height: auto;
+			width: auto;
+			margin: 0;
+			padding: 8px 0;
+			@include qodefHeadingStyle(h3, false);
+			transition: $color-transition, $background-color-transition;
+			color: $heading-color;
+			letter-spacing: 0.04em;
+			
+			.qodef-e-title {
+				position: relative;
+				display: block;
+				z-index: 2;
+				
+				&:before {
+					content: '';
+					position: absolute;
+					top: calc(50% - 8px);
+					left: 0;
+					width: 100%;
+					height: 7px;
+					background-color: currentColor;
+					transform: scaleX(0);
+        			transform-origin: left;
+        			transition: transform .1s cubic-bezier(.75,1.1,0,.96);
+				}
+			}
+			
+			&.qodef--active {
+				font-size: 80px;
+				color: $heading-color;
+				padding: 21px 0 17px;
+				
+				.qodef-e-title:before {
+					transform: scaleX(1);
+					transition: transform .3s cubic-bezier(.75,1.1,0,.96);
+				}
+			}
+		}
+		
+		.qodef-mobile-holder {
+			display: none;
+		}
+		
+		&.qodef-skin--light {
+			
+			.qodef-m-item {
+				color: $background-color;
+				
+				&.qodef--active {
+					color: $background-color;
+				}
+			}
+		}
+	}
+}

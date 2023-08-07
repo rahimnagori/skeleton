@@ -1,0 +1,148 @@
+/* ==========================================================================
+# Side Area style - begin
+========================================================================== */
+
+#qodef-side-area {
+	position: fixed;
+	top: 0;
+	right: -590px;
+	width: 590px;
+	height: 100%;
+	min-height: 100%;
+	padding: 120px 75px 35px;
+	text-align: center;
+	background-color: $heading-color;
+	overflow: hidden;
+	visibility: hidden;
+	z-index: 9999;
+	transition: $sliding-area-transition;
+	
+	.qodef-side-area--opened & {
+		right: 0;
+		visibility: visible;
+	}
+	
+	&.qodef-alignment--center {
+		text-align: center;
+	}
+	
+	&.qodef-alignment--right {
+		text-align: right;
+	}
+	
+	&.qodef-alignment--left {
+		text-align: left;
+	}
+}
+
+#qodef-side-area-close {
+	position: absolute;
+	top: 35px;
+	right: 33px;
+	display: block;
+	z-index: 1000;
+	color: #fff;
+
+	&.qodef-opener-icon {
+
+        &.qodef-source--icon-pack,
+        &.qodef-source--svg-path,
+        &.qodef-source--predefined {
+            color: #fff !important;
+        }
+    }
+
+	.admin-bar & {
+		top: 67px;
+	}
+	
+	&.qodef-source--predefined {
+
+		.qodef-m-line {
+			transition: .3s;
+
+			&.qodef--1 {
+				top: 13px;
+				left: 0;
+				transform: rotate(0);
+			}
+
+			&.qodef--2 {
+				top: 13px;
+				left: 0;
+				transform: rotate(0);
+			}
+		}
+
+		.qodef-side-area--opened & {
+
+			&:after {
+			    content: '';
+				display: block;
+				position: absolute;
+				top: 2px;
+				left: 3px;
+				width: 25px;
+				height: 25px;
+			}
+
+			.qodef-m-line {
+				transition: .3s .4s;
+	
+				&.qodef--1 {
+					transform: rotate(45deg);
+				}
+	
+				&.qodef--2 {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+.qodef-side-area-cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 0;
+	transition: opacity 0.2s ease-in-out, z-index 0.2s ease-in-out;
+	
+	.qodef-side-area--opened & {
+		opacity: 1;
+		z-index: 1002;
+	}
+}
+
+.qodef-side-area-custom-font {
+	position: relative;
+	display: inline-block;
+
+	&:after {
+		content: "";
+		@include qodefAbsoluteLayout();
+		top: 39%;
+		width: 100%;
+		height: 7px;
+		background: currentColor;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform .5s cubic-bezier(0.34, 0.25, 0, 0.98);
+	}
+
+	.qodef-side-area--opened & {
+
+		&:after {
+			transform: scaleX(1);
+			transition-delay: .3s;
+		}
+	}
+}
+
+/* ==========================================================================
+# Side Area style - end
+========================================================================== */

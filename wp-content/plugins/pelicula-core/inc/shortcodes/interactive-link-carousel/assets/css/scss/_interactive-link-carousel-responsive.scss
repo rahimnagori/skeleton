@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Interactive Link Carousel shortcode responsive styles
+   ========================================================================== */
+
+.qodef-interactive-link-carousel {
+
+   @include qodefScreenSize1024 {
+
+      .wp-video, video.wp-video-shortcode {
+         object-fit: cover;
+     }
+   }
+}

@@ -1,0 +1,18 @@
+2023-07-20T15:33:06+00:00 CRITICAL Uncaught ValueError: array_chunk(): Argument #2 ($length) must be greater than 0 in /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/pelicula-core/inc/shortcodes/item-showcase/item-showcase.php:117
+Stack trace:
+#0 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/pelicula-core/inc/shortcodes/item-showcase/item-showcase.php(117): array_chunk()
+#1 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/qode-framework/inc/shortcodes/translators/elementor/class-qodeframeworkelementor-translator.php(506): PeliculaCoreItemShowcaseShortcode->render()
+#2 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/pelicula-core/inc/shortcodes/item-showcase/item-showcase-elementor.php(36): QodeFrameworkElementor_Translator->create_render()
+#3 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/includes/base/controls-stack.php(2268): PeliculaCoreElementorItemShowcase->render()
+#4 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/includes/base/widget-base.php(609): Elementor\Controls_Stack->render_by_mode()
+#5 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/base/document.php(292): Elementor\Widget_Base->render_content()
+#6 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/includes/managers/widgets.php(445): Elementor\Core\Base\Document->render_element()
+#7 [internal function]: Elementor\Widgets_Manager->ajax_render_widget()
+#8 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/elementor/core/common/modules/ajax/module.php(175): call_user_func()
+#9 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(308): Elementor\Core\Common\Modules\Ajax\Module->handle_ajax_request()
+#10 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters()
+#11 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-includes/plugin.php(517): WP_Hook->do_action()
+#12 /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-admin/admin-ajax.php(188): do_action()
+#13 {main}
+  thrown in /home/u762160299/domains/rahimnagori.com/public_html/skeleton/wp-content/plugins/pelicula-core/inc/shortcodes/item-showcase/item-showcase.php on line 117
+

@@ -1,0 +1,42 @@
+.qodef-team-list {
+	
+	&.qodef-item-layout--info-below {
+		
+		.qodef-e-role {
+			margin: 1px 0 0;
+			font-size: 13px;
+			letter-spacing: .04em;
+			color: $text-color;
+		}
+
+		.qodef-team-member-social-icons {
+			margin: 5px 0 0;
+		}
+
+		.qodef-e {
+
+			.qodef-e-image {
+				overflow: hidden;
+			}
+
+			.qodef-e-media-image {
+				transition: .7s cubic-bezier(0.21, 0.5, 0, 0.9);
+				backface-visibility: hidden;
+			}
+
+			.qodef-e-title-main, .qodef-e-role {
+				transition: .3s cubic-bezier(0, 0, 0.12, 0.88);
+			}
+	
+			&:hover {
+				.qodef-e-media-image {
+					transform: scale(1.03);
+				}
+
+				.qodef-e-title-main, .qodef-e-role {
+					transform: translateX(7px);
+				}
+			}
+		}
+	}
+}

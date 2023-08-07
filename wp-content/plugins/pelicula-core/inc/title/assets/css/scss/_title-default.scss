@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Title styles
+   ========================================================================== */
+
+.qodef-page-title {
+	background-position: center 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	&.qodef-image--responsive {
+		height: auto !important; // because of inline style
+		
+		.qodef-m-content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			
+			&.qodef-content-grid {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+	
+	&.qodef-alignment--center {
+		text-align: center;
+	}
+	
+	&.qodef-alignment--right {
+		text-align: right;
+	}
+	
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+		
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+	
+	.qodef-m-content {
+		
+		&.qodef-content-full-width {
+			padding: $full-width-side-padding;
+		}
+
+		div.qodef-m-title {
+			font-family: $heading-font;
+			font-size: 120px;
+            line-height: 80px;
+			text-transform: uppercase;
+            letter-spacing: .05em;
+			color: $heading-color;
+		}
+	}
+	
+	.qodef-breadcrumbs {
+		
+		a, span {
+			font-size: 16px;
+			color: $text-color;
+		}
+
+		span {
+
+			&:not(.qodef-breadcrumbs-separator) {
+				position: relative;
+				white-space: nowrap;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: calc(50% + 1px);
+					left: 0;
+					width: 0;
+					height: 1px;
+					background-color: currentColor;
+					transition: width .2s ease-out;
+				}
+			}
+
+			&.qodef-breadcrumbs-current {
+
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+
+		a {
+
+			> span {
+				color: inherit;
+			}
+
+			&:hover {
+				color: $heading-color;
+
+				> span {
+
+					&:before {
+						width: 100%;
+					}
+				}
+			}
+		}
+		
+		.qodef-breadcrumbs-separator {
+			margin: 0 4px;
+			
+			&:after {
+				content: '/';
+			}
+		}
+	}
+}

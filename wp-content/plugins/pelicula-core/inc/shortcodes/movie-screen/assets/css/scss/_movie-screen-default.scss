@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Movie screen shortcode styles
+   ========================================================================== */
+
+.qodef-movie-screen {
+	@include qodefRelativeLayout();
+	
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+		overflow: hidden;
+		
+		img {
+			display: block;
+		}
+	}
+	
+	.qodef-m-additional-image {
+		display: block;
+		padding-bottom: 47px;
+	}
+	
+	.qodef-m-content {
+		@include qodefAbsoluteLayout();
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		padding: 35px;
+	}
+
+	.qodef-m-title {
+		margin: 10px 0;
+	}
+	
+	.qodef-m-title-inner {
+		display: inline-block;
+	}
+	
+	.qodef-m-subtitle {
+		margin: 10px 0;
+	}
+}

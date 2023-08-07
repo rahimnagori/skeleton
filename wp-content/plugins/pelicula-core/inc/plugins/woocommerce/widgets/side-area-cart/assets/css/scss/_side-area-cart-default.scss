@@ -1,0 +1,275 @@
+/* ==========================================================================
+   WooCommerce Side Area Cart styles
+   ========================================================================== */
+
+$content-width: 360px;
+$content-padding: 100px 0 50px; // 74 is action button height + 20
+$side-padding: 0 24px;
+
+$wp-widgets-area-map: (
+	'#qodef-page-sidebar': (
+		text-color: $text-color,
+		link-color: #fff,
+		link-hover-color: #fff
+	),
+	'#qodef-top-area': (
+		text-color: $text-color,
+		link-color: #fff,
+		link-hover-color: #fff
+	)
+);
+
+.qodef-woo-side-area-cart {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+	padding: 0 10px;
+	
+	.qodef-m-inner {
+		@include qodefRelativeLayout();
+		height: 100%;
+	}
+	
+	.qodef-m-opener {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 100%;
+
+		#qodef-top-area &,
+		.qodef-header--light & {
+			color: #fff;
+		}
+
+		.qodef-header--dark & {
+			color: #000;
+		}
+
+		.qodef-m-opener-holder {
+			position: relative;
+		}
+
+		.qodef-m-opener-icon {
+			font-size: 25px;
+		}
+
+		.qodef-m-opener-count {
+			position: absolute;
+			top: -4px;
+			right: -9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 14px;
+			height: 14px;
+			font-family: $heading-font;
+			font-size: 12px;
+			font-weight: 400;
+			line-height: 13px;
+			text-align: center;
+			text-indent: 2px;
+			letter-spacing: .2em;
+			text-transform: uppercase;
+			color: #fff;
+			background-color: $heading-color;
+			border-radius: 100%;
+
+			#qodef-top-area &,
+			.qodef-header--light & {
+				color: $heading-color;
+				background-color: #fff;
+			}
+
+			.qodef-header--dark & {
+				color: #fff;
+				background-color: #000;
+			}
+		}
+	}
+	
+	.qodef-m-content {
+		position: fixed;
+		top: 0;
+		right: -$content-width;
+		height: 100vh;
+		width: $content-width;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: $content-padding;
+		background-color: $semi-transparent-background-color;
+		overflow: hidden;
+		visibility: hidden;
+		z-index: 9999;
+		transition: $sliding-area-transition;
+		
+		.admin-bar & {
+			top: 32px;
+			height: calc(100vh - 32px);
+		}
+	}
+	
+	.qodef-m-close {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		display: block;
+		font-size: 34px;
+		z-index: 1000;
+		color: #fff !important;
+	}
+	
+	.qodef-m-items {
+		@include qodefRelativeLayout();
+		padding: $side-padding;
+
+		@each $key, $values in $wp-widgets-area-map {
+
+			#{$key} & {
+				@if (map-get($values, 'text-color') != null) {
+					color: map-get($values, 'text-color');
+				}
+
+				@if (map-get($values, 'link-color') != null) {
+					a {
+						color: map-get($values, 'link-color');
+
+						@if (map-get($values, 'link-hover-color') != null) {
+							&:hover {
+								color: map-get($values, 'link-hover-color');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.qodef-m-item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-top: 20px;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	
+	.qodef-e-image {
+		flex-shrink: 0;
+		width: 55px;
+		margin-right: 20px;
+		
+		a, img {
+			display: block;
+		}
+	}
+	
+	.qodef-e-content {
+		@include qodefRelativeLayout();
+		padding-right: 20px;
+	}
+	
+	.qodef-e-title {
+		margin: 0;
+		color: #fff;
+
+		a {
+			color: inherit;
+		}
+	}
+	
+	.qodef-e-price {
+		margin: -2px 0 0;
+		letter-spacing: normal;
+		color: $text-color-light;
+	}
+	
+	.qodef-e-quantity {
+		margin: 3px 0 0;
+	}
+	
+	.qodef-e-remove {
+		position: absolute;
+		top: -2px;
+		right: 0;
+		font-size: 20px;
+		line-height: 1;
+		color: #fff;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+	
+	.qodef-m-order-details {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		padding: 16px 24px 13px;
+		color: $text-color-light;
+		border-top: 2px solid rgba(#fff, .2);
+		border-bottom: 2px solid rgba(#fff, .2);
+
+		> * {
+			margin: 0;
+			color: inherit;
+		}
+
+		.qodef-m-order-amount {
+			@include qodefHeadingStyle(h6);
+			color: inherit;
+		}
+	}
+	
+	.qodef-m-action {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 7px;
+		padding: $side-padding;
+	}
+	
+	.qodef-m-action-link {
+		@include qodefButtonDefaultStyle();
+		@include qodefButtonSize();
+		padding: 0 !important;
+        font-size: 17px;
+        color: #fff !important;
+        background-color: transparent;
+        border: 0;
+	}
+
+	.qodef-m-action-separator {
+		display: block;
+		width: 2px;
+		height: 17px;
+		margin: 0 19px;
+		background-color: #fff;
+	}
+	
+	&.qodef--opened {
+		
+		.qodef-m-content {
+			right: 0;
+			visibility: visible;
+		}
+	}
+}
+
+.qodef-woo-side-area-cart-cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: calc(100% - #{$content-width});
+	height: 100vh;
+	overflow: hidden;
+	z-index: 1002;
+}

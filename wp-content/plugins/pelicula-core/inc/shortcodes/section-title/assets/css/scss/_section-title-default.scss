@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Section Title shortcode styles
+   ========================================================================== */
+
+.qodef-section-title {
+	@include qodefRelativeLayout();
+	
+	&.qodef-alignment--center {
+		text-align: center;
+	}
+	
+	&.qodef-alignment--left {
+		text-align: left;
+	}
+	
+	&.qodef-alignment--right {
+		text-align: right;
+
+		.qodef-m-title {
+			margin-right: -14px;
+		}
+	}
+
+	.qodef-m-tagline {
+		margin: 0 0 28px;
+		display: inline-block;
+		opacity: 0;
+		transform: translateY(20px);
+		transition-duration: 1s;
+		transition-timing-function: cubic-bezier(0.69, 0.13, 0, 0.95);
+
+		&.qodef--appear, .elementor-editor-active & {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.qodef-m-title {
+		margin: 0;
+		opacity: 0;
+
+		.qodef-custom-styles {
+			text-decoration: line-through;
+		}
+
+		&.qodef--appear, .elementor-editor-active & {
+			opacity: 1;
+		}
+
+		.qodef-m-title-word {
+			display: inline-block;
+			opacity: 0;
+			transform: translateY(20px);
+			transition-duration: 1s;
+			transition-timing-function: cubic-bezier(0.69, 0.13, 0, 0.95);
+			backface-visibility: hidden;
+			white-space: pre-wrap;
+
+			&.qodef-custom-styles {
+				text-decoration: none;
+
+				> span {
+					position: relative;
+
+					&.qodef-custom-styles--line-through {
+						&:before {
+							content: "";
+							position: absolute;
+							top: calc(50% - 1px);
+							left: -1px;
+							height: 6px;
+							width: 100%;
+							background-color: currentColor;
+							transform: scaleX(0);
+							transform-origin: left;
+							transition-property: transform;
+							transition-duration: .5s;
+							transition-delay: .5s;
+							transition-timing-function: cubic-bezier(.75,1.1,0,.96);
+						}
+					}
+				}
+			}
+
+			&.qodef--appear {
+				opacity: 1;
+				transform: translateY(0) !important;
+
+				&.qodef-custom-styles {
+					
+					> span {
+
+						&.qodef-custom-styles--line-through {
+							&:before {
+								transform: scaleX(1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.qodef-m-text {
+		margin: 25px 0 0;
+	}
+}
+
+.qodef-section-title-adjacent-button {
+	display: inline-block;
+	opacity: 0;
+	transform: translateY(20px);
+	transition-duration: 1s;
+	transition-timing-function: cubic-bezier(0.69, 0.13, 0, 0.95);
+
+	&.qodef--appear, .elementor-editor-active & {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

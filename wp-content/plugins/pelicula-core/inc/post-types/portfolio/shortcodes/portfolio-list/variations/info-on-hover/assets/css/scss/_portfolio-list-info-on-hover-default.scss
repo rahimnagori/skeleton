@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Portfolio List shortcode variation styles
+   ========================================================================== */
+
+.qodef-portfolio-list.qodef-item-layout--info-on-hover {
+
+	.qodef-e-image {
+
+		&:after {
+			display: none;
+		}
+	}
+
+	.qodef-e-content {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.qodef-e-content-inner {
+		background-color: rgba(10, 10, 10, .8);
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		
+		> a {
+			@include qodefAbsoluteLayout();
+			z-index: 0;
+		}
+		
+		* {
+			color: #fff;
+			z-index: 1;
+		}
+
+		.qodef-m-play-inner {
+			opacity: .3;
+		}
+	}
+	
+	.qodef-e-info-category {
+		
+		.qodef-e-category {
+			font-size: 13px;
+			letter-spacing: 0.09em;
+			
+			&:after {
+				content: '/';
+				position: relative;
+				top: 0;
+			}
+			
+			&:last-child:after {
+				display: none;
+			}
+		}
+	}
+}

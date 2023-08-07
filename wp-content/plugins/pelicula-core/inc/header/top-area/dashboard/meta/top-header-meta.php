@@ -1,0 +1,79 @@
+<?php
+if ( ! function_exists( 'pelicula_core_add_top_area_meta_options' ) ) {
+	function pelicula_core_add_top_area_meta_options( $page ) {
+		$top_area_section = $page->add_section_element(
+			array(
+				'name'       => 'qodef_top_area_section',
+				'title'      => esc_html__( 'Top Area', 'pelicula-core' ),
+				'dependency' => array(
+					'hide' => array(
+						'qodef_header_layout' => array(
+							'values'        => pelicula_core_dependency_for_top_area_options(),
+							'default_value' => ''
+						)
+					)
+				)
+			)
+		);
+
+		$top_area_section->add_field_element(
+			array(
+				'field_type'  => 'select',
+				'name'        => 'qodef_top_area_header',
+				'title'       => esc_html__( 'Top Area', 'pelicula-core' ),
+				'description' => esc_html__( 'Enable top area', 'pelicula-core' ),
+				'options'     => pelicula_core_get_select_type_options_pool( 'yes_no' )
+			)
+		);
+
+		$top_area_options_section = $top_area_section->add_section_element(
+			array(
+				'name'        => 'qodef_top_area_options_section',
+				'title'       => esc_html__( 'Top Area Options', 'pelicula-core' ),
+				'description' => esc_html__( 'Set desired values for top area', 'pelicula-core' ),
+				'dependency'  => array(
+					'show' => array(
+						'qodef_top_area_header' => array(
+							'values'        => 'yes',
+							'default_value' => 'no'
+						)
+					)
+				)
+			)
+		);
+
+		$top_area_options_section->add_field_element(
+			array(
+				'field_type'  => 'color',
+				'name'        => 'qodef_top_area_header_background_color',
+				'title'       => esc_html__( 'Top Area Background Color', 'pelicula-core' ),
+				'description' => esc_html__( 'Choose top area background color', 'pelicula-core' )
+			)
+		);
+
+		$top_area_options_section->add_field_element(
+			array(
+				'field_type'  => 'text',
+				'name'        => 'qodef_top_area_header_height',
+				'title'       => esc_html__( 'Top Area Height', 'pelicula-core' ),
+				'description' => esc_html__( 'Enter top area height (default is 30px)', 'pelicula-core' ),
+				'args'        => array(
+					'suffix' => esc_html__( 'px', 'pelicula-core' )
+				)
+			)
+		);
+
+		$top_area_options_section->add_field_element(
+			array(
+				'field_type' => 'text',
+				'name'       => 'qodef_top_area_header_side_padding',
+				'title'      => esc_html__( 'Top Area Side Padding', 'pelicula-core' ),
+				'args'       => array(
+					'suffix' => esc_html__( 'px or %', 'pelicula-core' )
+				)
+			)
+		);
+	}
+
+	add_action( 'pelicula_core_action_after_page_header_meta_map', 'pelicula_core_add_top_area_meta_options', 20 );
+}

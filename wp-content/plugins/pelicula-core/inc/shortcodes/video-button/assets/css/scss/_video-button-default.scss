@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Video Button shortcode start styles
+   ========================================================================== */
+
+.qodef-video-button {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+
+	&:hover {
+		.qodef-m-play {
+
+			.qodef-m-play-inner {
+				animation: qodef-animate-blur-in-out .8s cubic-bezier(0.44, 0.36, 0, 1) forwards;
+			}
+		}
+
+		.qodef-m-image {
+	
+			img {
+				transform: scale(1.04);
+			}
+		}
+	}
+
+	.qodef-m-image {
+		overflow: hidden;
+
+		img {
+			transform: scale(1.01);
+			transition: .7s cubic-bezier(0.21, 0.5, 0, 0.9);
+			backface-visibility: hidden;
+		}
+	}
+
+	.qodef-m-play {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $background-color;
+		font-size: 80px;
+		line-height: 1;
+
+		.qodef-m-play-inner {
+			will-change: transform;
+		}
+
+		span {
+			display: block;
+			line-height: inherit;
+		
+			&:before {
+				display: block;
+				line-height: inherit;
+			}
+		}
+	}
+
+	@keyframes qodef-animate-blur-in-out {
+		0% {
+			transform: scale(1);
+			filter: blur(0);
+		}
+		50% {
+			transform: scale(.92);
+			filter: blur(2px);
+		}
+		90% {
+			transform: scale(1);
+			filter: blur(1px);
+		}
+		100% {
+			transform: scale(1);
+			filter: blur(0);
+		}
+	}
+}
+/* ==========================================================================
+   Video Button shortcode end styles
+   ========================================================================== */

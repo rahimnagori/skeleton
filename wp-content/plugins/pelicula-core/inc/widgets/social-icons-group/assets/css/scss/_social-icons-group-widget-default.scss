@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Social Icons Group widget styles
+   ========================================================================== */
+
+.qodef-social-icons-group {
+    
+    .qodef-icon-holder {
+        margin-left: 9px;
+        
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+$wp-widgets-area-map: (
+    '':(
+        link-color: $heading-color,
+        link-hover-color: $main-color,
+        icon-circle-link-color: #fff,
+        icon-circle-link-hover-color: #fff,
+        icon-background-color: $heading-color,
+        icon-background-hover-color: $main-color,
+    ),
+);
+
+@each $key, $values in $wp-widgets-area-map {
+    #{$key} .widget {
+        &.widget_pelicula_core_social_icons_group {
+
+            .qodef-icon-holder {
+                
+                a {
+                    color: map-get($values, 'link-color');
+                    transition: $color-transition;
+
+                    &:hover {
+                        color: map-get($values, 'link-hover-color');
+                    }
+                }
+
+                &.qodef-layout--circle {
+                    color: map-get($values, 'icon-circle-link-color');
+                    background-color: map-get($values, 'icon-background-color');
+
+                    a {
+                        color: map-get($values, 'icon-circle-link-color');
+
+                        &:hover {
+                            color: map-get($values, 'icon-circle-link-hover-color');
+                        }
+                    }
+
+                    &:hover {
+                        background-color: map-get($values, 'icon-background-hover-color');
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+    Social Icons Group widget styles
+   ========================================================================== */

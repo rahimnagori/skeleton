@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Interactive Link Showcase shortcode responsive styles
+   ========================================================================== */
+
+.qodef-interactive-link-showcase {
+	
+	&.qodef-type--standard {
+		
+		@include qodefScreenSize1366 {
+			padding: 100px 0;
+			
+			.qodef-m-images {
+				width: 60%;
+			}
+			
+			.qodef-m-items {
+				width: 40%;
+			}
+		}
+		
+		@include qodefScreenSize1024 {
+			padding: 60px 0;
+			
+			.qodef-m-images {
+				width: 80%;
+			}
+			
+			.qodef-m-items {
+				width: 100%;
+				padding-left: 60px;
+				align-items: flex-start;
+			}
+			
+			.qodef-m-item {
+				@include qodefH3Style();
+				padding-bottom: 3px;
+			}
+		}
+		
+		@include qodefScreenSize680 {
+			padding: 30px 0;
+			
+			.qodef-m-items {
+				padding-left: 30px;
+			}
+		}
+	}
+	
+	&.qodef-layout--list {
+		@include qodefScreenSize1024 {
+			
+			.qodef-mobile-holder {
+				display: block;
+				padding-left: 8%;
+				padding-right: 8%;
+				
+				.qodef-mobile-image-holder {
+					position: relative;
+					
+					img {
+						width: 100%;
+					}
+					
+					.qodef-video-button {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						right: 0;
+						
+						.qodef-m-play {
+							font-size: 60px;
+						}
+					}
+				}
+				
+				.qodef-e-title {
+					@include qodefHeadingStyle(h3);
+					padding: 15px 0 40px;
+				}
+			}
+			
+			.qodef-m-bg-image {
+				z-index: -1;
+			}
+			
+			.qodef-m-images,
+			.qodef-m-items {
+				display: none;
+			}
+		}
+		
+		@include qodefScreenSize480 {
+			
+			.qodef-mobile-holder {
+				
+				.qodef-e-title {
+					@include qodefHeadingStyle(h4);
+				}
+			}
+		}
+	}
+}

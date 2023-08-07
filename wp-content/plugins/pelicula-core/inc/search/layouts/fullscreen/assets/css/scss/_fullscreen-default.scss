@@ -1,0 +1,180 @@
+/* ==========================================================================
+# Fullscreen search - start
+========================================================================== */
+
+/* Fullscreen search general style - start
+========================================================================== */
+
+.qodef-fullscreen-search-holder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $semi-transparent-background-color;
+    z-index: 100;
+
+    .qodef-m-inner{
+        width: 100%;
+    }
+
+    .qodef-m-form {
+        position: relative;
+        width: 60%;
+        margin: 0 auto;
+
+        .qodef-m-form-field {
+            @include qodefHeadingStyle(h5);
+            height: 100%;
+            margin: 0;
+            padding: 12px 38px;
+            color: #fff;
+            background: transparent;
+            border-left: 3px solid #fff;
+            border-radius: 0;
+
+            &:focus {
+                color: #fff;
+                background-color: transparent;
+                border-color: #fff;
+            }
+        }
+
+        .qodef-m-form-submit {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            padding: 0;
+            margin: 0;
+            color: #fff;
+            background: none;
+            border: 0 !important;
+            outline: none;
+            opacity: 0;
+            cursor: pointer;
+            transition: $color-transition;
+
+            &.qodef-opener-icon {
+
+                &.qodef-source--icon-pack,
+                &.qodef-source--svg-path,
+                &.qodef-source--predefined {
+                    color: #fff !important;
+                }
+            }
+
+            svg {
+                stroke: currentColor;
+
+                path {
+                    stroke: currentColor;
+                }
+            }
+
+            &:hover {
+                color: #fff;
+            }
+
+            .qodef-fullscreen-search--opened & {
+                opacity: 1;
+                transition: color .2s ease, opacity .3s ease;
+            }
+
+            &.qodef-source--icon-pack {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .qodef-m-close {
+        position: absolute;
+        top: 33px;
+        right: 70px;
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+	    z-index: 1;
+
+        &.qodef-opener-icon {
+
+            &.qodef-source--icon-pack,
+            &.qodef-source--svg-path,
+            &.qodef-source--predefined {
+                color: #fff !important;
+            }
+        }
+
+        svg {
+            stroke: currentColor;
+
+            path {
+                stroke: currentColor;
+            }
+        }
+
+        .admin-bar & {
+            top: 72px;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+
+        &.qodef-source--icon-pack {
+            font-size: 25px;
+        }
+
+        .qodef-fullscreen-search--opened & {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+/* Fullscreen search general style - end
+========================================================================== */
+
+/* Fullscreen search fade style - start
+========================================================================== */
+
+.qodef-fullscreen-search--fadeout .qodef-fullscreen-search-holder {
+    animation: fullscreen_search_fade_out .3s ease both;
+}
+
+.qodef-fullscreen-search--fadein .qodef-fullscreen-search-holder {
+    animation: fullscreen_search_fade_in .3s ease both;
+}
+
+@keyframes fullscreen_search_fade_out {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fullscreen_search_fade_in {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Fullscreen search fade style - end
+========================================================================== */
+
+/* ==========================================================================
+# Fullscreen search - end
+========================================================================== */

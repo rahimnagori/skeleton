@@ -1,0 +1,1 @@
+<a class="qodef-mobile-header-opener" href="#"><?php echo pelicula_opener_svg(); ?></a>

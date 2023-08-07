@@ -1,0 +1,44 @@
+/* Clients list shortcode style - start */
+.qodef-clients-list.qodef-item-layout--image-only.qodef-hover-animation--fade-in {
+	
+	.qodef-e {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.qodef-e-image {
+			line-height: 0;
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+
+			a {
+				display: inline-block;
+			}
+		}
+		.qodef-e-logo {
+			display: inline-block;
+			width: auto;
+			overflow: hidden;
+
+			img {
+				will-change: transform;
+			}
+		}
+
+		.qodef-e-hover-logo {
+			display: none;
+		}
+
+		&:hover {
+
+			.qodef-e-logo {
+
+				img {
+					animation: qodef-animate-blur-in-out .8s cubic-bezier(0.44, 0.36, 0, 1) forwards;
+				}
+			}
+		}
+	}
+}
+/* Clients list shortcode style - end */

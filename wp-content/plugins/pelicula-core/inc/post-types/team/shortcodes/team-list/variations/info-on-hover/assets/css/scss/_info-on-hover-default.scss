@@ -1,0 +1,81 @@
+.qodef-team-list {
+
+	&.qodef-item-layout--info-on-hover {
+		
+		.qodef-e-inner {
+			position: relative;
+			bottom: 0;
+			transition: all $transition-timing;
+
+			&:hover {
+				//bottom: 10px;
+
+				.qodef-e-content-below {
+					opacity: 0;
+					visibility: hidden;
+				}
+
+				.qodef-e-content {
+					opacity: 1;
+					z-index: 1; // safari fix
+				}
+			}
+		}
+
+		.qodef-e-content-below {
+			position: relative;
+			z-index: 1;
+			transition: $transition-timing;
+		}
+
+		.qodef-e-content {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			padding: 35px;
+			background-color: rgba(#fff, .89);
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			flex-direction: column;
+			opacity: 0;
+			box-sizing: border-box;
+			transition: $opacity-transition;
+			z-index: -1; // safari fix
+
+			.qodef-e-title {
+				text-decoration: line-through;
+			}
+
+			.qodef-e-role {
+				margin: 5px 0 0;
+			}
+
+			.qodef-team-member-social-icons {
+				margin: 9px 0 0;
+			}
+		}
+
+		&.qodef-skin--light {
+
+			.qodef-e-inner {
+
+				.qodef-e-content {
+					background-color: rgba($heading-color, .89);
+				}
+			}
+		}
+
+		&.qodef-skin--dark {
+
+			qodef-e-inner {
+
+				.qodef-e-content {
+					background-color: rgba(#fff, .89);
+				}
+			}
+		}
+	}
+}

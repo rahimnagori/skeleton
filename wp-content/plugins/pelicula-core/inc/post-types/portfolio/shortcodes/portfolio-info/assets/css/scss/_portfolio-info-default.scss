@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Portfolio Info shortcode styles
+   ========================================================================== */
+
+.qodef-portfolio-info {
+	
+	&.qodef-skin--light {
+
+		.qodef-e-info-item {
+			color: $text-color-light;
+		}
+
+		.qodef-e-title {
+			color: #fff;
+		}
+
+		.qodef-info--social-share {
+
+			.qodef-social-title {
+				color: #fff;
+			}
+		}
+
+		p, a {
+			color: $text-color-light;
+		}
+
+		a:hover {
+			color: #fff;
+		}
+	}
+}
+

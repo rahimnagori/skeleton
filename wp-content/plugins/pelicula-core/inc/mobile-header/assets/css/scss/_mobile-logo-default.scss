@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Mobile Logo styles
+   ========================================================================== */
+
+#qodef-page-mobile-header {
+	
+	.qodef-header-logo-image.qodef--customizer {
+		max-height: 100%;
+		width: auto;
+		margin-right: auto;
+	}
+	
+	.qodef-mobile-header-logo-link {
+		color: $main-color;
+
+		&.qodef-textual-logo {
+			font-family: $heading-font;
+            font-size: 61px;
+            min-width: 55px;
+			justify-content: left;
+			
+			&.qodef--line-through {
+
+				.qodef-logo-text-inner {
+					position: relative;
+					display: inline-block;
+	
+					&:after {
+						content: "";
+						@include qodefAbsoluteLayout();
+						top: 34%;
+						width: 100%;
+						height: 5px;
+						background-color: currentColor;
+						transform: scaleX(0);
+						transform-origin: left;
+					}
+				}
+	
+				&.qodef--animate-line-through {
+					
+					.qodef-logo-text-inner {
+						
+						&:after {
+							animation: qode-line-scaleX .5s 1s cubic-bezier(0.34, 0.25, 0, 0.98) forwards;
+						}
+					}
+				}
+			}
+		}
+		
+		img {
+			
+			&.qodef--main {
+				opacity: 1;
+			}
+			
+			&.qodef--dark,
+			&.qodef--light {
+				opacity: 0;
+			}
+			
+			&:not(.qodef--main) {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}

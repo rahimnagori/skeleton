@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Portfolio Single variation styles
+   ========================================================================== */
+
+.qodef-portfolio-single {
+    
+    &.qodef-layout--masonry-big {
+    
+        .qodef-e-content {
+            padding-bottom: 56px;
+
+            .qodef-grid-item {
+                margin-top: 0;
+            }
+
+            .qodef-portfolio-content {
+				border-right: 2px solid rgba(1, 1, 1, 0.2);
+				padding-right: 92px;
+			}
+        }
+        
+        .qodef-portfolio-info {
+			margin-top: 140px !important;
+
+			@media only screen and (min-width: $screen-size-1025) {
+				padding-left: 29px;
+			}
+		}
+    }
+}

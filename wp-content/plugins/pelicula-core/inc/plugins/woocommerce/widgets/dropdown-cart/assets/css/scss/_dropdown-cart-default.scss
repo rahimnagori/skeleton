@@ -1,0 +1,278 @@
+/* ==========================================================================
+   WooCommerce DropDown Cart styles
+   ========================================================================== */
+
+$wp-widgets-area-map: (
+	'#qodef-page-sidebar': (
+		text-color: $text-color,
+		link-color: #fff,
+		link-hover-color: #fff
+	),
+	'#qodef-top-area': (
+		text-color: $text-color,
+		link-color: #fff,
+		link-hover-color: #fff
+	)
+);
+
+.widget_pelicula_core_woo_dropdown_cart {
+	height: 100%;
+}
+
+.qodef-woo-dropdown-cart {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+	padding: 0 10px;
+	
+	.qodef-m-inner {
+		@include qodefRelativeLayout();
+		height: 100%;
+	}
+	
+	.qodef-m-opener {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 100%;
+
+		#qodef-top-area &,
+		.qodef-header--light & {
+			color: #fff;
+		}
+
+		.qodef-header--dark & {
+			color: #000;
+		}
+
+		.qodef-m-opener-holder {
+			position: relative;
+		}
+
+		.qodef-m-opener-icon {
+			font-size: 25px;
+		}
+
+		.qodef-m-opener-count {
+			position: absolute;
+			top: -4px;
+			right: -9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 14px;
+			height: 14px;
+			font-family: $heading-font;
+			font-size: 12px;
+			font-weight: 400;
+			line-height: 13px;
+			text-align: center;
+			text-indent: 2px;
+			letter-spacing: .2em;
+			text-transform: uppercase;
+			color: #fff;
+			background-color: $heading-color;
+			border-radius: 100%;
+
+			#qodef-top-area &,
+			.qodef-header--light & {
+				color: $heading-color;
+				background-color: #fff;
+			}
+
+			.qodef-header--dark & {
+				color: #fff;
+				background-color: #000;
+			}
+		}
+	}
+	
+	.qodef-m-dropdown {
+		position: absolute;
+		top: 100%;
+		left: auto;
+		right: 0;
+		text-align: left;
+		opacity: 0;
+		visibility: hidden;
+		transform: rotateX(-17deg);
+		transform-origin: 50% -50px;
+		transition: transform .5s cubic-bezier(0.32, 0.45, 0, 0.96),opacity .2s;
+	}
+	
+	.qodef-m-dropdown-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 260px;
+		padding: 34px 0 17px;
+		background-color: $semi-transparent-background-color;
+		border-top: 2px solid rgba(#fff, .2);
+		z-index: 10;
+	}
+	
+	.qodef-woo-dropdown-items {
+		@include qodefRelativeLayout();
+		padding: 0 24px;
+		
+		@each $key, $values in $wp-widgets-area-map {
+			
+			#{$key} & {
+				@if (map-get($values, 'text-color') != null) {
+					color: map-get($values, 'text-color');
+				}
+				
+				@if (map-get($values, 'link-color') != null) {
+					a {
+						color: map-get($values, 'link-color');
+						
+						@if (map-get($values, 'link-hover-color') != null) {
+							&:hover {
+								color: map-get($values, 'link-hover-color');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.qodef-woo-dropdown-item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-top: 20px;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	
+	.qodef-e-image {
+		flex-shrink: 0;
+		width: 55px;
+		margin-right: 20px;
+		
+		a, img {
+			display: block;
+		}
+	}
+	
+	.qodef-e-content {
+		@include qodefRelativeLayout();
+		padding-right: 20px;
+	}
+	
+	.qodef-e-title {
+		margin: 0;
+		color: #fff;
+
+		a {
+			color: inherit;
+		}
+	}
+	
+	.qodef-e-price {
+		margin: -2px 0 0;
+		letter-spacing: normal;
+		color: $text-color-light;
+	}
+	
+	.qodef-e-quantity {
+		margin: 3px 0 0;
+	}
+	
+	.qodef-e-remove {
+		position: absolute;
+		top: -2px;
+		right: 0;
+		font-size: 20px;
+		line-height: 1;
+		color: #fff;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+	
+	.qodef-m-order-details {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		margin-top: 24px;
+		padding: 16px 24px 13px;
+		color: $text-color-light;
+		border-top: 2px solid rgba(#fff, .2);
+		border-bottom: 2px solid rgba(#fff, .2);
+
+		> * {
+			margin: 0;
+			color: inherit;
+		}
+
+		.qodef-m-order-amount {
+			@include qodefHeadingStyle(h6);
+			color: inherit;
+		}
+		
+		@each $key, $values in $wp-widgets-area-map {
+			
+			#{$key} & {
+				@if (map-get($values, 'text-color') != null) {
+					color: map-get($values, 'text-color');
+				}
+			}
+		}
+	}
+	
+	.qodef-m-action {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 16px;
+		padding: 0 24px;
+	}
+	
+	.qodef-m-action-link {
+		@include qodefButtonDefaultStyle();
+		@include qodefButtonSize();
+		padding: 0 !important;
+        font-size: 17px;
+        color: #fff !important;
+        background-color: transparent;
+		border: 0;
+		@include qodefLinkLineThroughHoverStyle();
+
+		&:before {
+			top: calc(50% - 1px);
+			left: -1px;
+		}
+	}
+
+	.qodef-m-action-separator {
+		display: block;
+		width: 2px;
+		height: 17px;
+		margin: 0 19px;
+		background-color: #fff;
+	}
+
+	.qodef-m-posts-not-found {
+		margin: 10px 24px;
+	}
+
+	.touchevents & {
+		cursor: pointer;
+	}
+	
+	&:hover {
+		
+		.qodef-m-dropdown {
+			opacity: 1;
+			visibility: visible;
+			transform: rotateX(0);
+		}
+	}
+}

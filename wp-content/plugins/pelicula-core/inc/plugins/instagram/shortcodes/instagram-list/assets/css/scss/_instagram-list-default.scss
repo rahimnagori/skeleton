@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Instagram List shortcode styles
+   ========================================================================== */
+
+.qodef-instagram-list {
+	
+	#sb_instagram #sbi_images {
+		.sbi_photo_wrap {
+			a {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				opacity: 1 !important;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0,0,0, .6);
+					opacity: 0;
+					transition: .2s;
+				}
+
+				&:after {
+					content: '\f16d';
+					font-family: 'Font Awesome 5 Brands';
+					font-size: 18px;
+					color: #fff;
+					position: absolute;
+					opacity: 0;
+					transition: .2s;
+					margin-left: 1px;
+					margin-top: -1px;
+				}
+
+				&:hover {
+
+					&:before {
+						opacity: 1;
+					}
+
+					&:after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	
+	@for $i from 0 to length($grid-columns-gutter-label) {
+		&.qodef-gutter--#{nth($grid-columns-gutter-label,$i+1)} {
+			$gutter-size: nth($grid-columns-gutter-size, $i+1);
+			$gutter-double-size: $gutter-size * 2;
+			
+			&.qodef--no-bottom-space {
+				
+				@if ($gutter-size == 0) {
+					margin-bottom: 0;
+				} @else {
+					margin-bottom: -#{$gutter-double-size}px;
+				}
+			}
+			
+			#sb_instagram #sbi_images {
+				float: none;
+				padding: 0 !important;
+				width: auto;
+				@if ($gutter-size == 0) {
+					margin: 0;
+				} @else {
+					margin: 0 -#{$gutter-size}px;
+				}
+				
+				> .sbi_item {
+					
+					@if ($gutter-size == 0) {
+						padding: 0 !important;
+						margin: 0 !important;
+					} @else {
+						padding: 0 #{$gutter-size}px !important;
+						margin: 0 0 #{$gutter-double-size}px !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Instagram List shortcode styles
+   ========================================================================== */

@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Blog List Metro styles
+   ========================================================================== */
+
+.qodef-blog {
+	
+	&.qodef-item-layout--metro {
+		margin: 0;
+		
+		.qodef-e-inner {
+			
+			
+			&:hover {
+				.qodef-e-media-image {
+					img {
+						transform: scale(1.04);
+					}
+				}
+			}
+		}
+		
+		article {
+			
+			.qodef-e-media-image {
+				overflow: hidden;
+				
+				img {
+					transform: scale(1.01);
+					transition: .7s cubic-bezier(0.21, 0.5, 0, 0.9);
+					backface-visibility: hidden;
+				}
+				
+				&.qodef--background {
+					margin-bottom: 0;
+					
+					img {
+						visibility: visible;
+						
+						@include qodefScreenSize1024 {
+							visibility: hidden;
+						}
+					}
+				}
+			}
+			
+			.qodef-e-content {
+				@include qodefAbsoluteLayout();
+				display: flex;
+				justify-content: flex-end;
+				flex-direction: column;
+				padding: 20px 37px 33px;
+				
+				a {
+					position: relative;
+					z-index: 3;
+				}
+			}
+			
+			.qodef-e-title {
+				
+				.qodef-custom-styles {
+					text-decoration: line-through;
+				}
+				
+				a {
+					color: inherit;
+				}
+			}
+			
+			.qodef-e-info {
+				
+				> * {
+					color: inherit;
+				}
+				
+				&.qodef-info--top {
+					margin-bottom: 7px;
+					font-size: 13px;
+					letter-spacing: .03em;
+					
+					.qodef-e-info-item {
+						margin-right: 0;
+						padding-right: 18px;
+						
+						&:after {
+							right: 6px;
+						}
+						
+						&:last-child {
+							padding-right: 0;
+						}
+						
+						a {
+							letter-spacing: inherit;
+							color: inherit;
+						}
+					}
+				}
+				
+				&.qodef-info--bottom {
+					margin-top: 8px;
+					margin-bottom: 10px;
+				}
+			}
+			
+			.qodef-e-read-more {
+				margin-top: 0;
+				
+				> a {
+					width: auto;
+					color: inherit;
+				}
+			}
+			
+			.qodef-e-post-link {
+				z-index: 2;
+			}
+			
+			// Default skin
+			.qodef-e-title,
+			.qodef-e-info,
+			.qodef-e-read-more,
+			.qodef-e-info.qodef-info--bottom .qodef-e-info-item {
+				color: #fff;
+				
+				a {
+					color: #fff;
+					
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+		}
+		
+		&.qodef-items--fixed {
+			
+			article {
+				
+				&.format-link {
+					
+					.qodef-e-link {
+						display: flex;
+						justify-content: center;
+						flex-direction: column;
+						height: 100%;
+						padding-top: 40px;
+						padding-bottom: 40px;
+					}
+				}
+				
+				&.format-quote {
+					
+					.qodef-e-quote {
+						display: flex;
+						justify-content: center;
+						flex-direction: column;
+						height: 100%;
+						padding-top: 40px;
+						padding-bottom: 40px;
+					}
+				}
+			}
+		}
+		
+		&.qodef-swiper-container {
+			
+			&.qodef-col-num--1 {
+				
+				article {
+					
+					&:not(.format-link):not(.format-quote) {
+						
+						.qodef-e-media-image {
+							
+							&.qodef--background {
+								min-height: 500px;
+								
+								@media screen and (max-width: $screen-size-1280) and (min-width: $screen-size-1025) {
+									min-height: 200px;
+								}
+							}
+						}
+						
+						.qodef-e-content {
+							padding-right: 40%;
+							padding-left: 150px;
+							
+							@include qodefScreenSize1440 {
+								padding-right: 22%;
+							}
+							
+							@include qodefScreenSize1366 {
+								padding-right: 18%;
+							}
+							
+							@include qodefScreenSize1280 {
+								padding-right: 12%;
+							}
+							
+							@include qodefScreenSize1024 {
+								padding-right: 100px;
+								padding-left: 65px;
+							}
+							
+							@include qodefScreenSize680 {
+								justify-content: center;
+								padding-right: 60px;
+								padding-left: 30px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

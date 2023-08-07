@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Single Post Navigation styles
+   ========================================================================== */
+
+#qodef-single-portfolio-navigation {
+	@include qodefRelativeLayout();
+	margin: 100px 0 3px;
+	padding-top: 100px;
+	border-top: 2px solid rgba($heading-color, .2);
+	
+	.qodef-m-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	
+	.qodef-m-nav {
+		position: relative;
+		display: flex;
+		align-items: center;
+		
+		> * {
+			display: block;
+			line-height: inherit;
+		}
+		
+		&.qodef--prev,
+		&.qodef--next {
+			width: 48%;
+			
+			.qodef-post-image {
+				
+				img {
+					width: 144px;
+					max-width: 100%;
+				}
+			}
+			
+			.qodef-title-label {
+				position: relative;
+				display: block;
+				width: calc(100% - 175px);
+				
+				.qodef-e-title-link {
+					display: block;
+					margin: 0;
+					transition: all 0.3s ease-in-out;
+					
+					&:hover {
+						color: $main-color;
+					}
+				}
+				
+				.qodef-m-nav-label {
+					line-height: 1;
+					color: $text-color;
+				}
+			}
+
+			@include qodefScreenSize1024 {
+
+				.qodef-post-image {
+					display: none;
+				}
+
+				.qodef-e-title-link {
+					@include qodefHeadingStyle(h5);
+				}
+
+				.qodef-title-label {
+					width: 100%;
+				}
+			}
+
+			@include qodefScreenSize680 {
+
+				.qodef-title-label {
+					width: auto;
+					
+					.qodef-e-title-link {
+						display: none;
+					}
+				}
+			}
+		}
+		
+		&.qodef--prev {
+			
+			.qodef-post-image {
+				padding-right: 30px;
+			}
+		}
+		
+		&.qodef--next {
+			flex-direction: row-reverse;
+			margin-left: auto;
+			text-align: right;
+			
+			.qodef-post-image {
+				padding-left: 30px;
+			}
+		}
+
+		&.qodef--back-link {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+
+
+			.qodef-m-nav-icon {
+				font-size: 28px;
+			}
+		}
+	}
+
+	.qodef-navigation-skin--light & {
+		border-top: 2px solid rgba(255, 255, 255, .2);
+
+		.qodef-m-nav {
+
+			&.qodef--prev,
+			&.qodef--next {
+
+				.qodef-title-label {
+
+					.qodef-e-title-link {
+						color: #fff;
+
+						&:hover {
+							color: #fff;
+						}
+					}
+
+					.qodef-m-nav-label {
+						color: $text-color-light;
+					}
+				}
+			}
+
+			&.qodef--back-link {
+				color: #fff;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.qodef-navigation--simple & {
+		border-top: none;
+		padding-top: 0;
+	}
+}

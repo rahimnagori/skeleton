@@ -1,0 +1,62 @@
+/* ==========================================================================
+   movies List shortcode styles
+   ========================================================================== */
+
+.qodef-movies-list {
+	
+	.qodef-m-items {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	
+	.qodef-m-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 9px 0 9px;
+		
+		.qodef-e-year {
+			position: relative;
+			flex-basis: 27%;
+			text-align: right;
+		}
+		
+		.qodef-e-movies {
+			position: relative;
+			flex-basis: 68%;
+			text-align: left;
+		}
+		
+		.qodef-e-item-year,
+		.qodef-e-item-movies {
+			display: block;
+			@include qodefHeadingStyle(h6);
+		}
+		
+		.qodef-e-item-description {
+			display: block;
+			@include qodefCustomTypographyStyle();
+			font-size: 14px;
+			color: $text-color;
+			letter-spacing: 0.02em;
+		}
+	}
+	
+	&.qodef-skin--light {
+		
+		.qodef-m-item {
+			
+			.qodef-e-item-year,
+			.qodef-e-item-movies {
+				color: $background-color;
+			}
+
+			.qodef-e-item-description {
+				color: $text-color-light-2;
+			}
+		}
+	}
+}

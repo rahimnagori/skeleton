@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Vertical Sliding Menu Opener styles
+   ========================================================================== */
+
+.qodef-opener-icon {
+    
+    &.qodef-vertical-sliding-menu-opener {
+        display: block;
+    
+        .qodef-m-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        
+            &.qodef--close {
+                top: 50%;
+                left: 50%;
+            }
+        }
+    
+        &.qodef-source--predefined {
+        
+            .qodef-vertical-sliding-menu--opened & {
+            
+                .qodef-m-line {
+
+                    &.qodef--1 {
+                        top: 0;
+                        left: 0;
+                        transform: rotate(45deg) !important;
+                    }
+
+                    &.qodef--2 {
+                        top: 0;
+                        left: 0;
+                        transform: rotate(-45deg) !important;
+                    }
+                }
+
+                .qodef-m-icon {
+
+                    &.qodef--open {
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: -11px;
+                            left: 2px;
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.qodef-vertical-sliding-menu--opened {
+    
+    .qodef-vertical-sliding-menu-opener {
+        
+        &:not(.qodef-source--predefined) {
+        
+            .qodef-m-icon {
+                visibility: hidden;
+            
+                &.qodef--close {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    #qodef-page-header .qodef-header-logo-link img {
+        
+        &.qodef--light {
+            opacity: 1;
+        }
+
+        &.qodef--main,
+        &.qodef--dark {
+            opacity: 0;
+        }
+    }
+}

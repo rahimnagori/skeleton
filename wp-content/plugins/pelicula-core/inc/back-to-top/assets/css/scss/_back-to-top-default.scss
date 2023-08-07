@@ -1,0 +1,79 @@
+/* ==========================================================================
+   #Back to Top styles - start
+   ========================================================================== */
+
+#qodef-back-to-top {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	right: 25px;
+	bottom: 25px;
+	margin: 0;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 10000;
+	background-color: #fff;
+	border: 1px solid $main-color;
+	clip-path: inset(0);
+	-webkit-clip-path: inset(0);
+	overflow: hidden;
+	
+	.qodef-back-to-top-icon {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		font-size: 20px;
+		color: #fff;
+		overflow: hidden;
+		transition: $color-transition, $background-color-transition, $border-color-transition;
+		z-index: 12;
+		
+		* {
+			display: block;
+			line-height: inherit;
+		}
+	}
+
+	.qodef-btn-bg-holder {
+		@include qodefAbsoluteLayout();
+		top: -5px;
+		left: -2px;
+		width: 107%;
+		height: 115%;
+		z-index: 1;
+		pointer-events: none;
+		transform: translate3d(0,0,0) skewY(0);
+		transition: .5s cubic-bezier(0.24, 0.69, 0.12, 0.9);
+		background-color: $main-color;
+	}
+	
+	&:hover {
+
+		.qodef-back-to-top-icon {
+			color: $main-color;
+		}
+
+		.qodef-btn-bg-holder {
+			transform: translate3d(0,140%,0) skewY(10deg);
+			transition: .5s cubic-bezier(0.17, 0.21, 0, 0.96);
+		}
+	}
+	
+	&.qodef--off {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.15s ease, visibility .0s .15s;
+	}
+	
+	&.qodef--on {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s ease;
+	}
+}
+
+/* ==========================================================================
+   #Back to Top styles - end
+   ========================================================================== */

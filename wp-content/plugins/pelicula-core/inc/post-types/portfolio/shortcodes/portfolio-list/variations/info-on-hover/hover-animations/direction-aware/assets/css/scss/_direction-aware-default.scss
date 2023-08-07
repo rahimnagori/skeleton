@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Portfolio List shortcode variation hover styles
+   ========================================================================== */
+
+.qodef-portfolio-list.qodef-item-layout--info-on-hover.qodef-hover-animation--direction-aware {
+	
+	.qodef-e-inner {
+		overflow: hidden;
+	}
+	
+	.qodef-e-content {
+		display: none;
+		padding: inherit;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+}

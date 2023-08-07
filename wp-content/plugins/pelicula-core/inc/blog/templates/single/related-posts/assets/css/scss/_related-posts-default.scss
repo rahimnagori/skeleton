@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Related Posts styles
+   ========================================================================== */
+
+#qodef-related-posts {
+	@include qodefRelativeLayout();
+	margin-top: 96px;
+
+	.qodef-related-posts-title {
+		margin: 0 0 42px;
+	}
+
+	.qodef-e-info {
+
+		&.qodef-info--bottom {
+			display: none;
+		}
+	}
+}

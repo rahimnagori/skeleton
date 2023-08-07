@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Social Share shortcode styles
+   ========================================================================== */
+
+.qodef-social-share {
+	&.qodef-layout--text {
+
+		.qodef-social-title {
+			margin-right: 19px;
+			vertical-align: bottom;
+		}
+
+		ul {
+			vertical-align: bottom;
+		}
+
+		li {
+			margin-right: 24px;
+			
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Social Share shortcode styles
+   ========================================================================== */

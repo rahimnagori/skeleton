@@ -1,0 +1,381 @@
+/* ==========================================================================
+   Horizontal Timeline shortcode style - begin
+   ========================================================================== */
+
+.qodef-horizontal-timeline {
+	@include qodefRelativeLayout(top);
+	opacity: 0;
+	transition: $opacity-transition;
+
+	&:before {
+		// never visible - this is used in jQuery to check the current MQ
+		content: 'desktop';
+		display: none;
+
+		@include qodefScreenSize1024 {
+			content: 'mobile';
+		}
+	}
+
+	&.qodef-loaded {
+		opacity: 1;
+	}
+
+	*,
+	*:before,
+	*:after {
+		box-sizing: border-box;
+	}
+
+	ol, ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.qodef-m-ht-nav {
+		@include qodefRelativeLayout(top);
+	}
+
+	.qodef-m-ht-nav-wrapper {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: calc(100% - 20px);
+		height: 60px;
+		margin: 0 10px;
+		overflow: hidden;
+		cursor: grab;
+	}
+
+	.qodef-m-ht-nav-inner {
+		position: absolute;
+		bottom: 10px;
+		left: 0;
+		height: 1px;
+		background-color: rgba($heading-color, .5);
+		transition: transform .4s ease;
+
+		a {
+			@include qodefHeadingStyle(h5);
+			position: absolute;
+			bottom: 0;
+			padding: 0 0 19px;
+			color: $text-color;
+			text-align: center;
+			z-index: 2;
+
+			.qodef-m-ht-nav-line-through {
+				@include qodefAbsoluteLayout();
+				top: 27%;
+				width: 100%;
+				height: 2px;
+				background-color: currentColor;
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: transform .5s cubic-bezier(0.34, 0.25, 0, 0.98);
+				pointer-events: none;
+			}
+
+			&:hover {
+
+				&:before {
+					border-color: $heading-color;
+				}
+
+				&:after {
+					background-color: $heading-color;
+				}
+			}
+
+			&.qodef-selected {
+				pointer-events: none;
+				color: $heading-color;
+
+				.qodef-m-ht-nav-line-through {
+					transform: scaleX(1);
+				}
+
+				&:before {
+					border-color: $heading-color;
+				}
+
+				&:after {
+					background-color: $heading-color;
+				}
+			}
+
+			&.qodef-older-event {
+
+				&:before {
+					border-color: $heading-color;
+				}
+
+				&:after {
+					background-color: $heading-color;
+				}
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: -7px;
+				left: 50%;
+				right: auto;
+				height: 11px;
+				width: 11px;
+				background-color: $background-color;
+				border: 2px solid rgba($heading-color, .5);
+				border-radius: 100%;
+				box-sizing: content-box;
+				transform: translateX(-50%);
+				transition: $border-color-transition;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: -3px;
+				left: 50%;
+				right: auto;
+				height: 7px;
+				width: 7px;
+				background-color: transparent;
+				border-radius: 100%;
+				box-sizing: content-box;
+				transform: translateX(-50%);
+				transition: $background-color-transition;
+			}
+		}
+	}
+
+	.qodef-m-ht-nav-filling-line {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: $heading-color;
+		z-index: 1;
+		transform: scaleX(0);
+		transform-origin: left center;
+		transition: transform .3s ease;
+		pointer-events: none;
+	}
+
+	.qodef-m-ht-nav-navigation {
+
+		a {
+			position: absolute;
+			bottom: -8px;
+			font-size: 36px;
+			line-height: 1;
+			z-index: 2;
+
+			&.qodef-prev {
+				left: 2px;
+			}
+
+			&.qodef-next {
+				right: 2px;
+			}
+
+			&.qodef-inactive {
+				color: #6b6b6b !important;
+			}
+		}
+	}
+
+	.qodef-m-ht-content {
+		@include qodefRelativeLayout(top);
+		margin-top: 66px;
+		overflow: hidden;
+		transition: $height-transition;
+		cursor: grab;
+		user-select: none;
+
+		.qodef-e-hti-content-inner {
+			display: flex;
+			align-items: center;
+			margin: 0 -49px;
+
+			&.qodef-timeline-has-image {
+
+				img {
+					user-select: none;
+					pointer-events: none;
+				}
+
+				> * {
+					width: 50%;
+				}
+			}
+
+			> * {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+				padding: 0 49px;
+				box-sizing: border-box;
+			}
+
+			.qodef-e-title {
+				margin: 0;
+			}
+
+			.qodef-e-text {
+				margin: 16px 0 0;
+				font-size: 16px;
+				line-height: 26px;
+				letter-spacing: normal;
+			}
+
+			.qodef-e-button {
+				margin: 17px 0 0;
+			}
+		}
+
+		li {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			animation-duration: 0.4s;
+			animation-timing-function: cubic-bezier(0.58, 0.04, 0.35, 0.87);
+			opacity: 0;
+			z-index: 1;
+			will-change: opacity, transform;
+
+			&.qodef-selected {
+				position: relative;
+				opacity: 1;
+				z-index: 2;
+				transform: translateX(0);
+			}
+
+			&.qodef-enter-left,
+			&.qodef-leave-left {
+				transform: translateX(-100%);
+				animation-name: qodef-enter-left;
+			}
+
+			&.qodef-enter-right,
+			&.qodef-leave-right {
+				transform: translateX(100%);
+				animation-name: qodef-enter-right;
+			}
+
+			&.qodef-leave-left,
+			&.qodef-leave-right {
+				animation-timing-function: cubic-bezier(0.75, 0.1, 0.2, 1.02);
+				animation-direction: reverse;
+			}
+		}
+	}
+
+	&.qodef-skin--light {
+
+		.qodef-m-ht-nav-inner {
+			background-color: rgba(#fff, .5);
+
+			a {
+				color: $text-color-light;
+
+				&:hover {
+
+					&:before {
+						border-color: #fff;
+					}
+
+					&:after {
+						background-color: #fff;
+					}
+				}
+
+				&.qodef-selected {
+					color: #fff;
+
+					&:before {
+						border-color: #fff;
+					}
+
+					&:after {
+						background-color: #fff;
+					}
+				}
+
+				&.qodef-older-event {
+
+					&:before {
+						border-color: #fff;
+					}
+
+					&:after {
+						background-color: #fff;
+					}
+				}
+
+				&:before {
+					background-color: $heading-color;
+					border: 2px solid rgba(#fff, .5);
+				}
+			}
+		}
+
+		.qodef-m-ht-nav-filling-line {
+			background-color: #fff;
+		}
+
+		.qodef-m-ht-nav-navigation {
+
+			a {
+				color: #fff;
+			}
+		}
+
+		.qodef-m-ht-content {
+
+			.qodef-e-hti-content-inner {
+
+				.qodef-e-title {
+					color: #fff;
+				}
+
+				.qodef-e-text {
+					color: $text-color-light;
+				}
+
+				.qodef-e-button {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+@keyframes qodef-enter-right {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+@keyframes qodef-enter-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+/* ==========================================================================
+   Horizontal Timeline shortcode style - end
+   ========================================================================== */
