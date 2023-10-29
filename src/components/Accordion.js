@@ -2,6 +2,11 @@ import { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 function Accordion({ items }) {
+  /*
+    # This component expects an array of object(s).
+    # The object will have
+    # { id, label, content }
+  */
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const renderedItems = items.map((item, index) => {
@@ -48,6 +53,7 @@ function Accordion({ items }) {
       </div>
     );
   });
+
   return <div className="border-x border-t rounded">{renderedItems}</div>;
 }
 
