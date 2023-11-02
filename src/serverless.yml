@@ -1,0 +1,14 @@
+service: auth0-serverless
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  auth0:
+    handler: dist/auth0Handler.handler
+    events:
+      - http:
+          path: auth0
+          method: post
+          cors: true
