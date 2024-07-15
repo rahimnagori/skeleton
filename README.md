@@ -1,4 +1,4 @@
-# Project Skeleton
+# Skeleton
 
 This project aims to implement a skeleton for a web application with basic authentication features using various technologies. Below is the task list and the features to be implemented.
 
